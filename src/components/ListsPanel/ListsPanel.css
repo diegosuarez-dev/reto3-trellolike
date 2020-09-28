@@ -11,12 +11,40 @@
   display: flex;
   flex-direction: column;
   background-color: #FF5722;
-  color: #FFFFFF;
 }
 .panel .list .heading {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 1em;
+  color: #FFFFFF;
+}
+.panel .list .todos {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.panel .list .todos .task {
+  background-color: #FFCCBC;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  color: #212121;
+}
+.panel .list .todos .task .data {
+  text-align: start;
+  padding: 1em;
+}
+.panel .list .todos .task .actions {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.panel .list .add {
+  background-color: #E64A19;
+  color: #FFFFFF;
+  padding: 1em;
+  text-align: center;
 }
 
 /*# sourceMappingURL=ListsPanel.css.map */

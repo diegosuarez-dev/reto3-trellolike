@@ -11,14 +11,26 @@ export const deleteListAction = (dispatch) => (listId) =>
         listId: listId
     });
 
-export const deleteTodoAction = (dispatch) => (id) =>
+export const addTodoAction = (dispatch) => (title, description, listId) => 
     dispatch({
-        type: 'DELETE_TODO',
-        todoId: id,
+        type: 'ADD_TODO',
+        title: title,
+        description: description,
+        listId: listId,
+        todoId: Date.now(),
+        completed: false
     });
 
-export const toggleCompleteAction = (dispatch) => (id) =>
+export const deleteTodoAction = (dispatch) => (todoId, listId) =>
+    dispatch({
+        type: 'DELETE_TODO',
+        listId: listId,
+        todoId: todoId,
+    });
+
+export const toggleCompleteAction = (dispatch) => (todoId, listId) =>
     dispatch({
         type: 'TOGGLE_COMPLETED_TODO',
-        todoId: id,
+        listId: listId,
+        todoId: todoId,
     });

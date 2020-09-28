@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addListAction } from '../services/redux/actions';
+import { addListAction } from '../../services/redux/actions';
 import './Header.css';
 
 const Header = props => {
