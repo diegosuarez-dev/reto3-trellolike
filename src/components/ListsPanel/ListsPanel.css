@@ -7,7 +7,8 @@
 .panel .list {
   height: 100%;
   width: 20%;
-  padding: 1em;
+  margin: 0.5em;
+  padding: 0.5em;
   display: flex;
   flex-direction: column;
   background-color: #FF5722;
@@ -22,29 +23,45 @@
 .panel .list .todos {
   display: flex;
   flex-direction: column;
-  padding: 1em;
 }
 .panel .list .todos .task {
   background-color: #FFCCBC;
-  padding: 1em;
+  margin: 0.5em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   color: #212121;
 }
 .panel .list .todos .task .data {
   text-align: start;
-  padding: 1em;
+  padding: 0.5em;
+}
+.panel .list .todos .task .data p {
+  font-size: 0.7em;
 }
 .panel .list .todos .task .actions {
   display: flex;
-  flex-direction: column;
-  padding: 1em;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0.5em;
+}
+.panel .list .todos .task .actions button {
+  font-size: 0.7em;
+  width: 50%;
+}
+.panel .list .todos .completed {
+  color: #757575;
 }
 .panel .list .add {
+  margin: 0.5em;
+}
+.panel .list .add button {
+  width: 100%;
   background-color: #E64A19;
   color: #FFFFFF;
-  padding: 1em;
-  text-align: center;
+  border-width: 1px;
+  border-color: #FFFFFF;
+  border-style: solid;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=ListsPanel.css.map */

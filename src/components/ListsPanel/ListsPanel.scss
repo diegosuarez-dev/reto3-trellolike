@@ -8,7 +8,8 @@
     .list {
         height: 100%;
         width: 20%;
-        padding: 1em;
+        margin: 0.5em;
+        padding: 0.5em;
         display: flex;
         flex-direction: column;
         background-color: $primary;
@@ -22,29 +23,45 @@
         .todos {
             display: flex;
             flex-direction: column;
-            padding: 1em;
             .task {
                 background-color: $light-primary;
-                padding: 1em;
+                margin: 0.5em;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 color: $primary-text;
                 .data {
                     text-align: start;                    
-                    padding: 1em;
+                    padding: 0.5em;
+                    p {
+                        font-size: 0.7em;
+                    }
                 }
                 .actions {
                     display: flex;
-                    flex-direction: column;
-                    padding: 1em;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    padding: 0.5em;
+                    button {
+                        font-size: 0.7em;
+                        width: 50%;
+                    }
                 }
             }
+            .completed { 
+                color: $secondary-text;
+            }
         }
-        .add {
-            background-color: $dark-primary;
-            color: $white;
-            padding: 1em;
-            text-align: center;
+        .add {            
+            margin: 0.5em;
+            button {
+                width: 100%;
+                background-color: $dark-primary;
+                color: $white;
+                border-width: 1px;
+                border-color: $white;
+                border-style: solid;
+                cursor: pointer;
+            }
         }
     }
 }

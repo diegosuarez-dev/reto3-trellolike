@@ -38,7 +38,7 @@ const ListsPanel = props => {
                                     key={todo.id}
                                 >
                                     <div className='data'>
-                                        <h6 className='text'>{todo.text}</h6>
+                                        <h5 className='text'>{todo.text}</h5>
                                         <p className='description'>{todo.description}</p>
                                     </div>
                                     <div className='actions'>
