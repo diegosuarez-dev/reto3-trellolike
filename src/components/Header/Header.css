@@ -1,0 +1,18 @@
+.header {
+  background: #E64A19;
+  color: #FFFFFF;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+.header input {
+  all: unset;
+  padding: 0.5em;
+  background-color: #FFCCBC;
+  color: #212121;
+  width: 25%;
+}
+
+/*# sourceMappingURL=Header.css.map */

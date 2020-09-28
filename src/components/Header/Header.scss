@@ -1,0 +1,17 @@
+@import '../../colors.scss';
+.header {
+    background: $dark-primary;
+    color: $white;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    input {
+        all:unset;
+        padding: 0.5em;
+        background-color: $light-primary;
+        color: $primary-text;
+        width: 25%;
+    }
+}

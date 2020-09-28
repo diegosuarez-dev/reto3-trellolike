@@ -1,0 +1,22 @@
+@import '../../colors.scss';
+.panel {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    background-color: $white;
+
+    .list {
+        height: 100%;
+        width: 20%;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        background-color: $primary;
+        color: $white;
+        .heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
+}
