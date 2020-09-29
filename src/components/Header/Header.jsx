@@ -35,7 +35,7 @@ const Header = props => {
             <div className='title'>Task it!</div>
             <div className='listActions'>
                 <button onClick={() => props.displayHeaderInput()}>
-                    {'✚ Add list'}
+                    {props.headerInputDisplay ? 'Cancel' : '✚ Add list'}
                 </button>
                 {input}
             </div>
