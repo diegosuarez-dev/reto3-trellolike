@@ -1,4 +1,5 @@
 const initialState = {
+    headerInputDisplay: false,
     lists: [
         {
             text: 'lista demo 1',
@@ -99,6 +100,11 @@ function reducer(state = initialState, action) {
                 )
             };
             return newStateTog;
+        case 'TOGGLE_DISPLAY_HEADER_INPUT':
+            return {
+                ...state,
+                headerInputDisplay: !state.headerInputDisplay,
+            };
         default:
             return state;
     }

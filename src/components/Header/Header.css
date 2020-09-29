@@ -4,15 +4,39 @@
   padding: 1em;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
-.header input {
+.header .title {
+  font-size: 1.5em;
+}
+.header .listActions {
+  width: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.header .listActions button {
+  padding: 0.5em;
+  height: 37px;
+  min-width: 75px;
+  background-color: #FF5722;
+  color: #FFFFFF;
+  border-width: 1px;
+  border-color: #FFFFFF;
+  border-style: solid;
+  cursor: pointer;
+}
+.header .listActions .inputContainer {
+  width: 100%;
+  margin: 0 0.5em;
+}
+.header .listActions .inputContainer input {
   all: unset;
   padding: 0.5em;
   background-color: #FFCCBC;
   color: #212121;
-  width: 25%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=Header.css.map */
