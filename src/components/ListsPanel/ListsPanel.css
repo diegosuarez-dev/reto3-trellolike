@@ -1,7 +1,7 @@
 .panel {
   display: flex;
   flex-direction: row;
-  padding: 1em;
+  padding: 0.2em;
   background-color: #FFFFFF;
 }
 .panel .list {
@@ -47,14 +47,21 @@
 .panel .list .todos .task .actions button {
   font-size: 0.7em;
   width: 50%;
+  background-color: #E64A19;
+  color: #FFFFFF;
+  border-width: 1px;
+  border-color: #FFFFFF;
+  border-style: solid;
+  cursor: pointer;
 }
 .panel .list .todos .completed {
-  color: #757575;
+  color: #212121;
+  background-color: #8adf8f;
 }
-.panel .list .add {
+.panel .add {
   margin: 0.5em;
 }
-.panel .list .add button {
+.panel .add button {
   width: 100%;
   background-color: #E64A19;
   color: #FFFFFF;

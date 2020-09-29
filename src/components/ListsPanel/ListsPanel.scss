@@ -2,7 +2,7 @@
 .panel {
     display: flex;
     flex-direction: row;
-    padding: 1em;
+    padding: 0.2em;
     background-color: $white;
 
     .list {
@@ -44,11 +44,19 @@
                     button {
                         font-size: 0.7em;
                         width: 50%;
+                        background-color: $dark-primary;
+                        color: $white;
+                        border-width: 1px;
+                        border-color: $white;
+                        border-style: solid;
+                        cursor: pointer;
                     }
                 }
             }
             .completed { 
-                color: $secondary-text;
+                color: $primary-text;
+                background-color: $completed;
+            }
             }
         }
         .add {            
@@ -64,4 +72,3 @@
             }
         }
     }
-}
