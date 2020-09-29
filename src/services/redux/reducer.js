@@ -1,8 +1,10 @@
 const initialState = {
+    headerInputDisplay: false,
     lists: [
         {
             text: 'lista demo 1',
             listId: 0,
+            listInputDisplay: false,
             todos: [
                 {
                     text: 'tarea demo 1',
@@ -33,23 +35,28 @@ function reducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD_LIST':
             return {
+                ...state,
+                headerInputDisplay: false,
                 lists: [
                     ...state.lists,
                     {
                         text: action.payload,
                         listId: action.listId,
+                        listInputDisplay: false,
                         todos: []
                     },
                 ],
             };
         case 'DELETE_LIST':
             return {
+                ...state,
                 lists: state.lists.filter(
                     (list) => list.listId !== action.listId,
                 ),
             };
         case 'ADD_TODO':
             let newStateAdd = {
+                ...state,
                 lists: [
                     ...state.lists
                 ]
@@ -57,6 +64,7 @@ function reducer(state = initialState, action) {
             newStateAdd.lists[action.listId] = {
                 text: state.lists[action.listId].text,
                 listId: action.listId,
+                listInputDisplay: false,
                 todos: [
                     ...state.lists[action.listId].todos,
                     {
@@ -70,6 +78,7 @@ function reducer(state = initialState, action) {
             return newStateAdd;
         case 'DELETE_TODO':
             let newStateDel = {
+                ...state,
                 lists: [
                     ...state.lists
                 ]
@@ -77,11 +86,13 @@ function reducer(state = initialState, action) {
             newStateDel.lists[action.listId] = {
                 text: state.lists[action.listId].text,
                 listId: action.listId,
+                listInputDisplay: false,
                 todos: state.lists[action.listId].todos.filter(todo => todo.id !== action.todoId)
             };
             return newStateDel;
         case 'TOGGLE_COMPLETED_TODO':
             let newStateTog = {
+                ...state,
                 lists: [
                     ...state.lists
                 ]
@@ -89,6 +100,7 @@ function reducer(state = initialState, action) {
             newStateTog.lists[action.listId] = {
                 text: state.lists[action.listId].text,
                 listId: action.listId,
+                listInputDisplay: false,
                 todos: state.lists[action.listId].todos.map(
                     (todo) => {
                         if (todo.id === action.todoId) {
@@ -99,6 +111,23 @@ function reducer(state = initialState, action) {
                 )
             };
             return newStateTog;
+        case 'TOGGLE_DISPLAY_HEADER_INPUT':
+            return {
+                ...state,
+                headerInputDisplay: !state.headerInputDisplay,
+            };
+        case 'TOGGLE_DISPLAY_LIST_INPUT':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.listInputDisplay = !list.listInputDisplay;
+                        }
+                        return list;
+                    }
+                )
+            };
         default:
             return state;
     }

@@ -1,0 +1,12 @@
+.newTodoForm {
+  width: 100%;
+}
+.newTodoForm input {
+  all: unset;
+  background-color: #FFCCBC;
+  color: #212121;
+  width: 100%;
+  font-size: 0.7em;
+}
+
+/*# sourceMappingURL=NewTodoForm.css.map */
