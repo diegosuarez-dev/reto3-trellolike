@@ -32,8 +32,12 @@
                 .data {
                     text-align: start;                    
                     padding: 0.5em;
+                    h5 {
+                        margin: 0.5em 0;
+                    }
                     p {
                         font-size: 0.7em;
+                        margin: 0.5em 0;
                     }
                 }
                 .actions {
@@ -57,18 +61,18 @@
                 color: $primary-text;
                 background-color: $completed;
             }
-            }
-        }
-        .add {            
-            margin: 0.5em;
-            button {
-                width: 100%;
-                background-color: $dark-primary;
-                color: $white;
-                border-width: 1px;
-                border-color: $white;
-                border-style: solid;
-                cursor: pointer;
-            }
         }
     }
+    .add {            
+        margin: 0.5em;
+        button {
+            width: 100%;
+            background-color: $dark-primary;
+            color: $white;
+            border-width: 1px;
+            border-color: $white;
+            border-style: solid;
+            cursor: pointer;
+        }
+    }
+}

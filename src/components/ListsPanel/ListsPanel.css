@@ -35,8 +35,12 @@
   text-align: start;
   padding: 0.5em;
 }
+.panel .list .todos .task .data h5 {
+  margin: 0.5em 0;
+}
 .panel .list .todos .task .data p {
   font-size: 0.7em;
+  margin: 0.5em 0;
 }
 .panel .list .todos .task .actions {
   display: flex;
