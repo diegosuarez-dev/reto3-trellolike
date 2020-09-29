@@ -33,7 +33,7 @@ const Header = props => {
 
     return (
         <div className='header'>
-            <div className='title'>Task it!</div>
+            <div className='title'>Task me!</div>
             <div className='listActions'>
                 <button onClick={() => props.displayHeaderInput()}>
                     {props.headerInputDisplay ? 'Cancel' : '✚ Add list'}
