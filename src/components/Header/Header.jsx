@@ -26,6 +26,7 @@ const Header = props => {
                 type='text'
                 placeholder='Type the new list name here and press enter'
                 onKeyUp={(e) => onKeyUpHandle(e)}
+                autoFocus
             />
         </div>;
     }

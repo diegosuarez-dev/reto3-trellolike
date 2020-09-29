@@ -16,9 +16,20 @@
         .heading {
             display: flex;
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-between;
             padding: 1em;
             color: $white;
+            button {
+                font-size: 0.7em;
+                background-color: $light-primary;
+                color: $white;
+                border-width: 1px;
+                border-color: $white;
+                border-style: solid;
+            }
+            button:hover {
+                background-color: $primary;
+            }
         }
         .todos {
             display: flex;
@@ -55,6 +66,9 @@
                         border-style: solid;
                         cursor: pointer;
                     }
+                    button:hover {
+                        background-color: $primary;
+                    }
                 }
             }
             .completed { 
@@ -73,6 +87,9 @@
             border-color: $white;
             border-style: solid;
             cursor: pointer;
+        }
+        button:hover {
+            background-color: $primary;
         }
     }
 }

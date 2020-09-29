@@ -37,5 +37,11 @@ export const toggleCompleteAction = (dispatch) => (todoId, listId) =>
 
 export const displayHeaderInputAction = (dispatch) => () => 
     dispatch({
-        type: 'TOGGLE_DISPLAY_HEADER_INPUT'
+        type: 'TOGGLE_DISPLAY_HEADER_INPUT',
+    });
+
+export const displayListInputAction = (dispatch) => (listId) => 
+    dispatch({
+        type: 'TOGGLE_DISPLAY_LIST_INPUT',
+        listId: listId,
     });

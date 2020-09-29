@@ -1,0 +1,11 @@
+@import '../../colors.scss';
+.newTodoForm {
+    width: 100%;
+    input {
+        all:unset;
+        background-color: $light-primary;
+        color: $primary-text;
+        width: 100%;
+        font-size: 0.7em;
+    }
+}

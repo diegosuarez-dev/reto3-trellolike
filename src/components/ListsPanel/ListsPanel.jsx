@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteListAction, addTodoAction, deleteTodoAction, toggleCompleteAction } from '../../services/redux/actions';
+import { deleteListAction, addTodoAction, deleteTodoAction, toggleCompleteAction, displayListInputAction } from '../../services/redux/actions';
+import NewTodoForm from '../NewTodoForm/NewTodoForm';
 import './ListsPanel.css';
 
-const PrepareTodo = (props, listId) => {
+/*const PrepareTodo = (props, listId) => {
     let title = prompt('Type the task title (required)');
     if (title) {
         let description = prompt('Type the task description (optional)');
@@ -11,10 +12,9 @@ const PrepareTodo = (props, listId) => {
     } else {
         alert('A title is required to add a new task');
     }
-}
+}*/
 
 const ListsPanel = props => {
-    console.log(props.lists);
     return (
         <div className='panel'>
             {props.lists.map(list => (
@@ -56,8 +56,9 @@ const ListsPanel = props => {
                             )
                         }
                         <div className='add'>
-                            <button onClick={() => PrepareTodo(props, list.listId)}>
-                                {'✚ Add todo'}
+                            {list.listInputDisplay ? <NewTodoForm listId={list.listId}/> : null}
+                            <button onClick={() => props.displayListInput(list.listId)}>
+                                {!list.listInputDisplay ? '✚ Add todo' :'Cancel'}
                             </button>
                         </div>
                     </div>
@@ -78,6 +79,7 @@ const mapDispatchToProps = (dispatch) => ({
     addTodo: addTodoAction(dispatch),
     deleteTodo: deleteTodoAction(dispatch),
     toggleCompleted: toggleCompleteAction(dispatch),
+    displayListInput: displayListInputAction(dispatch),
 });
 
 const connectedPanel = connect(
