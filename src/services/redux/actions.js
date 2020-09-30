@@ -21,6 +21,17 @@ export const addTodoAction = (dispatch) => (title, description, listId) =>
         completed: false
     });
 
+export const dragTodoAction = (dispatch) => (todoText, todoDescription, todoId, todoCompleted, prevListId, newListId) =>
+    dispatch({
+        type: 'DRAG_TODO',
+        todoText: todoText,
+        todoDescription: todoDescription,
+        todoId: todoId,
+        todoCompleted: todoCompleted,
+        prevListId: prevListId,
+        newListId: newListId
+    });
+
 export const deleteTodoAction = (dispatch) => (todoId, listId) =>
     dispatch({
         type: 'DELETE_TODO',

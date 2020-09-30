@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteListAction, addTodoAction, deleteTodoAction, toggleCompleteAction, displayListInputAction } from '../../services/redux/actions';
+import { deleteListAction, dragTodoAction, deleteTodoAction, toggleCompleteAction, displayListInputAction } from '../../services/redux/actions';
 import NewTodoForm from '../NewTodoForm/NewTodoForm';
 import './ListsPanel.css';
 
@@ -14,11 +14,26 @@ import './ListsPanel.css';
     }
 }*/
 
+
+
 const ListsPanel = props => {
+    let draggedItem;
+    const handleDragStart = (todoText, todoDescription, todoId, todoCompleted, listId) => {
+        draggedItem = {
+            todoText: todoText,
+            todoDescription: todoDescription,
+            todoId: todoId,
+            todoCompleted: todoCompleted,
+            listId: listId
+        }
+    };
     return (
         <div className='panel'>
             {props.lists.map(list => (
-                <div className='list' key={list.listId}>
+                <div className='list' key={list.listId}
+                    onDragOver={e => e.preventDefault()}
+                    onDragEnter={e => e.preventDefault()}
+                    onDrop={() => props.dragTodo(draggedItem.todoText, draggedItem.todoDescription, draggedItem.todoId, draggedItem.todoCompleted, draggedItem.listId, list.listId)}>
                     <div className='heading'>
                         <div className='name'>
                             {list.text}
@@ -36,6 +51,8 @@ const ListsPanel = props => {
                                     className={`task ${todo.completed ? 'completed' : ''
                                         }`}
                                     key={todo.id}
+                                    draggable
+                                    onDragStart={() => handleDragStart(todo.text, todo.description, todo.id, todo.completed, list.listId)}
                                 >
                                     <div className='data'>
                                         <h5 className='text'>{todo.text}</h5>
@@ -76,8 +93,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     deleteList: deleteListAction(dispatch),
-    addTodo: addTodoAction(dispatch),
     deleteTodo: deleteTodoAction(dispatch),
+    dragTodo: dragTodoAction(dispatch),
     toggleCompleted: toggleCompleteAction(dispatch),
     displayListInput: displayListInputAction(dispatch),
 });

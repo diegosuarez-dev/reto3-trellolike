@@ -76,6 +76,34 @@ function reducer(state = initialState, action) {
                 ]
             };
             return newStateAdd;
+        case 'DRAG_TODO':
+            let newStateDrag = {
+                ...state,
+                lists: [
+                    ...state.lists
+                ]
+            };
+            newStateDrag.lists[action.prevListId] = {
+                text: state.lists[action.prevListId].text,
+                listId: action.prevListId,
+                listInputDisplay: false,
+                todos: state.lists[action.prevListId].todos.filter(todo => todo.id !== action.todoId)
+            };
+            newStateDrag.lists[action.newListId] = {
+                text: state.lists[action.newListId].text,
+                listId: action.newListId,
+                listInputDisplay: false,
+                todos: [
+                    ...state.lists[action.newListId].todos,
+                    {
+                        text: action.todoText,
+                        description: action.todoDescription,
+                        id: action.todoId,
+                        completed: action.todoCompleted || false
+                    }
+                ]
+            };
+            return newStateDrag;
         case 'DELETE_TODO':
             let newStateDel = {
                 ...state,
