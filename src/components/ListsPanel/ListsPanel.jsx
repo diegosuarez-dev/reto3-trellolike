@@ -56,9 +56,9 @@ const ListsPanel = props => {
                             )
                         }
                         <div className='add'>
-                            {list.listInputDisplay ? <NewTodoForm listId={list.listId}/> : null}
+                            {list.listInputDisplay ? <NewTodoForm listId={list.listId} /> : null}
                             <button onClick={() => props.displayListInput(list.listId)}>
-                                {!list.listInputDisplay ? '✚ Add todo' :'Cancel'}
+                                {!list.listInputDisplay ? '✚ Add todo' : 'Cancel'}
                             </button>
                         </div>
                     </div>
