@@ -21,6 +21,15 @@ export const addTodoAction = (dispatch) => (title, description, listId) =>
         completed: false
     });
 
+export const editTodoAction = (dispatch) => (title, description, todoId, listId) => 
+    dispatch({
+        type: 'EDIT_TODO',
+        title: title,
+        description: description,
+        todoId: todoId,
+        listId: listId
+    });
+
 export const dragTodoAction = (dispatch) => (todoText, todoDescription, todoId, todoCompleted, prevListId, newListId) => {
     if (prevListId !== newListId) {
         dispatch({
@@ -75,4 +84,11 @@ export const displayListInputAction = (dispatch) => (listId) =>
     dispatch({
         type: 'TOGGLE_DISPLAY_LIST_INPUT',
         listId: listId,
+    });
+
+export const displayTodoEditInputAction = (dispatch) => (todoId, listId) => 
+    dispatch({
+        type: 'TOGGLE_DISPLAY_TODO_EDIT_INPUT',
+        todoId: todoId,
+        listId: listId
     });
