@@ -8,7 +8,8 @@
   flex-wrap: wrap;
 }
 .header .title {
-  font-size: 1.5em;
+  font-family: Lobster;
+  font-size: 2em;
 }
 .header .listActions {
   width: 35%;
@@ -25,6 +26,7 @@
   border-width: 1px;
   border-color: #FFFFFF;
   border-style: solid;
+  border-radius: 0.5em;
   cursor: pointer;
 }
 .header .listActions button:hover {
@@ -40,6 +42,7 @@
   background-color: #FFCCBC;
   color: #212121;
   width: 100%;
+  border-radius: 0.5em;
 }
 
 /*# sourceMappingURL=Header.css.map */

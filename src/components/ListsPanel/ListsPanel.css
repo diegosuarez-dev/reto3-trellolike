@@ -1,17 +1,18 @@
 .panel {
   display: flex;
   flex-direction: row;
-  padding: 0.2em;
   background-color: #FFFFFF;
+  padding-top: 0.5em;
 }
 .panel .list {
   height: 100%;
   width: 20%;
-  margin: 0.5em;
+  margin: 0.2em 0 0.2em 0.2em;
   padding: 0.5em;
   display: flex;
   flex-direction: column;
   background-color: #FF5722;
+  border-radius: 0.5em;
 }
 .panel .list .heading {
   display: flex;
@@ -27,6 +28,7 @@
   border-width: 1px;
   border-color: #FFFFFF;
   border-style: solid;
+  border-radius: 0.5em;
 }
 .panel .list .heading button:hover {
   background-color: #FF5722;
@@ -41,6 +43,7 @@
   display: flex;
   flex-direction: column;
   color: #212121;
+  border-radius: 0.5em;
 }
 .panel .list .todos .task .data {
   text-align: start;
@@ -67,6 +70,7 @@
   border-width: 1px;
   border-color: #FFFFFF;
   border-style: solid;
+  border-radius: 0.5em;
   cursor: pointer;
 }
 .panel .list .todos .task .actions button:hover {
@@ -86,6 +90,7 @@
   border-width: 1px;
   border-color: #FFFFFF;
   border-style: solid;
+  border-radius: 0.5em;
   cursor: pointer;
 }
 .panel .add button:hover {

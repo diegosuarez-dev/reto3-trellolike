@@ -8,7 +8,8 @@
     justify-content: space-between;
     flex-wrap: wrap;
     .title {
-        font-size: 1.5em;
+        font-family: Lobster;
+        font-size: 2em;
     }
     .listActions {
         width: 35%;
@@ -24,6 +25,7 @@
             border-width: 1px;
             border-color: $white;
             border-style: solid;
+            border-radius: 0.5em;
             cursor: pointer;
         }
         button:hover {
@@ -38,6 +40,7 @@
                 background-color: $light-primary;
                 color: $primary-text;
                 width: 100%;
+                border-radius: 0.5em;
             }
         }
     }
