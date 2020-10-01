@@ -1,20 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteListAction, dragTodoAction, deleteTodoAction, toggleCompleteAction, displayListInputAction } from '../../services/redux/actions';
+import { deleteListAction, dragTodoAction, switchTodoPositionAction, deleteTodoAction, toggleCompleteAction, displayListInputAction } from '../../services/redux/actions';
 import NewTodoForm from '../NewTodoForm/NewTodoForm';
 import './ListsPanel.css';
-
-/*const PrepareTodo = (props, listId) => {
-    let title = prompt('Type the task title (required)');
-    if (title) {
-        let description = prompt('Type the task description (optional)');
-        props.addTodo(title, description, listId);
-    } else {
-        alert('A title is required to add a new task');
-    }
-}*/
-
-
 
 const ListsPanel = props => {
     let draggedItem;
@@ -53,6 +41,9 @@ const ListsPanel = props => {
                                     key={todo.id}
                                     draggable
                                     onDragStart={() => handleDragStart(todo.text, todo.description, todo.id, todo.completed, list.listId)}
+                                    onDragOver={e => e.preventDefault()}
+                                    onDragEnter={e => e.preventDefault()}
+                                    onDrop={() => props.switchTodoPosition(draggedItem.todoText, todo.text, draggedItem.todoDescription, todo.description, draggedItem.todoId, todo.id, draggedItem.todoCompleted, todo.completed, draggedItem.listId, list.listId)}
                                 >
                                     <div className='data'>
                                         <h5 className='text'>{todo.text}</h5>
@@ -95,6 +86,7 @@ const mapDispatchToProps = (dispatch) => ({
     deleteList: deleteListAction(dispatch),
     deleteTodo: deleteTodoAction(dispatch),
     dragTodo: dragTodoAction(dispatch),
+    switchTodoPosition: switchTodoPositionAction(dispatch),
     toggleCompleted: toggleCompleteAction(dispatch),
     displayListInput: displayListInputAction(dispatch),
 });

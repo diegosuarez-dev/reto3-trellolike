@@ -76,7 +76,7 @@ function reducer(state = initialState, action) {
                 ]
             };
             return newStateAdd;
-        case 'DRAG_TODO':
+        case 'DRAG_TODO_TO_OTHER_LIST':
             let newStateDrag = {
                 ...state,
                 lists: [
@@ -104,6 +104,30 @@ function reducer(state = initialState, action) {
                 ]
             };
             return newStateDrag;
+        case 'SWITCH_TODOS_IN_SAME_LIST':
+            let newStateSwitch = {
+                ...state,
+                lists: [
+                    ...state.lists
+                ]
+            };
+            let firstTodoSwitch = {
+                text: action.startTodoText,
+                description: action.startTodoDescription,
+                id: action.startTodoId,
+                completed: action.startTodoCompleted
+            };
+            let indexOfFirstTodoSwitch = state.lists[action.prevListId].todos.findIndex(element => element.text === firstTodoSwitch.text);
+            let secondTodoSwitch = {
+                text: action.endTodoText,
+                description: action.endTodoDescription,
+                id: action.endTodoId,
+                completed: action.endTodoCompleted
+            };
+            let indexOfSecondTodoSwitch = state.lists[action.prevListId].todos.findIndex(element => element.text === secondTodoSwitch.text);
+            newStateSwitch.lists[action.prevListId].todos[indexOfFirstTodoSwitch] = secondTodoSwitch;
+            newStateSwitch.lists[action.prevListId].todos[indexOfSecondTodoSwitch] = firstTodoSwitch;
+            return newStateSwitch;
         case 'DELETE_TODO':
             let newStateDel = {
                 ...state,

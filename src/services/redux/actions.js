@@ -11,7 +11,7 @@ export const deleteListAction = (dispatch) => (listId) =>
         listId: listId
     });
 
-export const addTodoAction = (dispatch) => (title, description, listId) => 
+export const addTodoAction = (dispatch) => (title, description, listId) =>
     dispatch({
         type: 'ADD_TODO',
         title: title,
@@ -22,9 +22,9 @@ export const addTodoAction = (dispatch) => (title, description, listId) =>
     });
 
 export const dragTodoAction = (dispatch) => (todoText, todoDescription, todoId, todoCompleted, prevListId, newListId) => {
-    if (prevListId != newListId) {
+    if (prevListId !== newListId) {
         dispatch({
-            type: 'DRAG_TODO',
+            type: 'DRAG_TODO_TO_OTHER_LIST',
             todoText: todoText,
             todoDescription: todoDescription,
             todoId: todoId,
@@ -34,7 +34,23 @@ export const dragTodoAction = (dispatch) => (todoText, todoDescription, todoId, 
         });
     }
 };
-    
+
+export const switchTodoPositionAction = (dispatch) => (startTodoText, endTodoText, startTodoDescription, endTodoDescription, startTodoId, endTodoId, startTodoCompleted, endTodoCompleted, prevListId, newListId) => {
+    if (prevListId === newListId) {
+        dispatch({
+            type: 'SWITCH_TODOS_IN_SAME_LIST',
+            startTodoText: startTodoText,
+            endTodoText: endTodoText,
+            startTodoDescription: startTodoDescription,
+            endTodoDescription: endTodoDescription,
+            startTodoId: Date.now(), //Necesito asignar un nuevo ID para evitar conflicto de keys duplicados
+            endTodoId: Date.now() + 1, //Necesito asignar un nuevo ID para evitar conflicto de keys duplicados
+            startTodoCompleted: startTodoCompleted,
+            endTodoCompleted: endTodoCompleted,
+            prevListId: prevListId,
+        });
+    } 
+}
 
 export const deleteTodoAction = (dispatch) => (todoId, listId) =>
     dispatch({
@@ -50,12 +66,12 @@ export const toggleCompleteAction = (dispatch) => (todoId, listId) =>
         todoId: todoId,
     });
 
-export const displayHeaderInputAction = (dispatch) => () => 
+export const displayHeaderInputAction = (dispatch) => () =>
     dispatch({
         type: 'TOGGLE_DISPLAY_HEADER_INPUT',
     });
 
-export const displayListInputAction = (dispatch) => (listId) => 
+export const displayListInputAction = (dispatch) => (listId) =>
     dispatch({
         type: 'TOGGLE_DISPLAY_LIST_INPUT',
         listId: listId,
