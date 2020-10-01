@@ -32,10 +32,10 @@
   margin-left: 0.2em;
   width: 2.5em;
 }
-.panel .list .heading #delete:hover {
+.panel .list .heading .delete:hover {
   background-color: red;
 }
-.panel .list .heading #edit:hover {
+.panel .list .heading .edit:hover {
   background-color: orange;
 }
 .panel .list .todos {
@@ -80,6 +80,12 @@
 }
 .panel .list .todos .task .actions button:hover {
   background-color: #FF5722;
+}
+.panel .list .todos .task .actions .delete:hover {
+  background-color: red;
+}
+.panel .list .todos .task .actions .edit:hover {
+  background-color: orange;
 }
 .panel .list .todos .completed {
   color: #212121;

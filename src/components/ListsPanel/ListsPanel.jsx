@@ -27,10 +27,10 @@ const ListsPanel = props => {
                             {list.text}
                         </div>
                         <div className='actions'>
-                            <button id='edit'>
+                            <button class='edit'>
                                 {'✎'}
                             </button>
-                            <button id='delete' onClick={() => props.deleteList(list.listId)}>
+                            <button class='delete' onClick={() => props.deleteList(list.listId)}>
                                 {'✘'}
                             </button>
                         </div>
@@ -58,10 +58,10 @@ const ListsPanel = props => {
                                         >
                                             {!todo.completed ? '☐' : '☑'}
                                         </button>
-                                        <button>
+                                        <button class='edit'>
                                             {'✎'}
                                         </button>
-                                        <button onClick={() => props.deleteTodo(todo.id, list.listId)}>
+                                        <button class='delete' onClick={() => props.deleteTodo(todo.id, list.listId)}>
                                             {'✘'}
                                         </button>
                                     </div>
