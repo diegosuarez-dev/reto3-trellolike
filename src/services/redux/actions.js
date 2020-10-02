@@ -5,6 +5,13 @@ export const addListAction = (dispatch) => (text, listId) =>
         listId: listId
     });
 
+export const editListAction = (dispatch) => (text, listId) =>
+    dispatch({
+        type: 'EDIT_LIST',
+        payload: text,
+        listId: listId
+    });
+
 export const deleteListAction = (dispatch) => (listId) =>
     dispatch({
         type: 'DELETE_LIST',
@@ -90,5 +97,11 @@ export const displayTodoEditInputAction = (dispatch) => (todoId, listId) =>
     dispatch({
         type: 'TOGGLE_DISPLAY_TODO_EDIT_INPUT',
         todoId: todoId,
+        listId: listId
+    });
+
+export const displayListEditInputAction = (dispatch) => (listId) => 
+    dispatch({
+        type: 'TOGGLE_DISPLAY_LIST_EDIT_INPUT',
         listId: listId
     });

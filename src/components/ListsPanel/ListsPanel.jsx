@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteListAction, dragTodoAction, switchTodoPositionAction, deleteTodoAction, toggleCompleteAction, displayListInputAction, displayTodoEditInputAction } from '../../services/redux/actions';
-import NewTodoForm from '../NewTodoForm/NewTodoForm';
+import { deleteListAction, dragTodoAction, switchTodoPositionAction, deleteTodoAction, toggleCompleteAction, displayListInputAction, displayTodoEditInputAction, displayListEditInputAction } from '../../services/redux/actions';
+import TodoForm from '../TodoForm/TodoForm';
+import ListForm from '../ListForm/ListForm';
 import './ListsPanel.css';
 
 const ListsPanel = props => {
@@ -27,13 +28,16 @@ const ListsPanel = props => {
                             {list.text}
                         </div>
                         <div className='actions'>
-                            <button className='edit'>
-                                {'✎'}
+                            <button className='edit' onClick={() => props.displayListEditInput(list.listId)}>
+                                {!list.listEditionInputDisplay ? '✎' : '↩'}
                             </button>
                             <button className='delete' onClick={() => props.deleteList(list.listId)}>
                                 {'✘'}
                             </button>
                         </div>
+                    </div>
+                    <div className='listEditInput'>
+                        {list.listEditionInputDisplay ? <ListForm listId={list.listId}/> : null}
                     </div>
                     <div className='todos'>
                         {
@@ -59,21 +63,21 @@ const ListsPanel = props => {
                                             {!todo.completed ? '☐' : '☑'}
                                         </button>
                                         <button className='edit' onClick={() => props.displayTodoEditInput(todo.id,list.listId)}>
-                                            {!todo.editInputDisplay ? '✎' : 'Cancel'}
+                                            {!todo.editInputDisplay ? '✎' : '↩'}
                                         </button>
                                         <button className='delete' onClick={() => props.deleteTodo(todo.id, list.listId)}>
                                             {'✘'}
                                         </button>
                                     </div>
-                                    {todo.editInputDisplay ? <NewTodoForm role={'edit'} listId={list.listId} todoId={todo.id} /> : null}
+                                    {todo.editInputDisplay ? <TodoForm role={'edit'} listId={list.listId} todoId={todo.id} /> : null}
                                 </div>
                             )
                             )
                         }
                         <div className='add'>
-                            {list.listInputDisplay ? <NewTodoForm role={'new'} listId={list.listId} /> : null}
+                            {list.listInputDisplay ? <TodoForm role={'new'} listId={list.listId} /> : null}
                             <button onClick={() => props.displayListInput(list.listId)}>
-                                {!list.listInputDisplay ? '✚ Add todo' : 'Cancel'}
+                                {!list.listInputDisplay ? '✚ Add todo' : '↩ Cancel'}
                             </button>
                         </div>
                     </div>
@@ -96,7 +100,8 @@ const mapDispatchToProps = (dispatch) => ({
     switchTodoPosition: switchTodoPositionAction(dispatch),
     toggleCompleted: toggleCompleteAction(dispatch),
     displayListInput: displayListInputAction(dispatch),
-    displayTodoEditInput: displayTodoEditInputAction(dispatch)
+    displayTodoEditInput: displayTodoEditInputAction(dispatch),
+    displayListEditInput: displayListEditInputAction(dispatch)
 });
 
 const connectedPanel = connect(

@@ -1,7 +1,7 @@
-.newTodoForm {
+.todoForm {
   width: 100%;
 }
-.newTodoForm input {
+.todoForm input {
   all: unset;
   background-color: #FFFFFF;
   color: #212121;
@@ -9,7 +9,7 @@
   width: 100%;
   font-size: 0.7em;
 }
-.newTodoForm button {
+.todoForm button {
   width: 100%;
   background-color: #E64A19;
   color: #FFFFFF;
@@ -20,8 +20,8 @@
   cursor: pointer;
   margin-bottom: 0.5em;
 }
-.newTodoForm button:hover {
+.todoForm button:hover {
   background-color: #FF5722;
 }
 
-/*# sourceMappingURL=NewTodoForm.css.map */
+/*# sourceMappingURL=TodoForm.css.map */

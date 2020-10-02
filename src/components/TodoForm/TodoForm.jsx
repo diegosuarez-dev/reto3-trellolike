@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTodoAction, editTodoAction } from '../../services/redux/actions';
-import './NewTodoForm.css';
+import './TodoForm.css';
 
-const NewTodoForm = (props) => {
+const TodoForm = (props) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
@@ -25,7 +25,7 @@ const NewTodoForm = (props) => {
     }
 
     return (
-        <form className={"newTodoForm"} onSubmit={handleSubmit}>
+        <form className="todoForm" onSubmit={handleSubmit}>
             <input type="text" name="title" value={title} placeholder="Task name" onChange={handleTitleChange} required autoFocus />
             <input type="text" name="description" value={description} placeholder="Task description (optional)" onChange={handleDescriptionChange} />
             <button type="submit">{props.role === 'new' ? 'Create it' : 'Update it'}</button>
@@ -41,6 +41,6 @@ const mapDispatchToProps = (dispatch) => ({
 const connectedForm = connect(
     null,
     mapDispatchToProps,
-)(NewTodoForm);
+)(TodoForm);
 
 export default connectedForm;

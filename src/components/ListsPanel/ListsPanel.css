@@ -40,6 +40,11 @@
 .panel .list .heading .edit:hover {
   background-color: orange;
 }
+.panel .list .listEditInput {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5em 0.5em 0.5em;
+}
 .panel .list .todos {
   display: flex;
   flex-direction: column;

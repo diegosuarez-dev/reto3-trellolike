@@ -4,6 +4,7 @@ const initialState = {
         {
             text: 'lista demo 1',
             listId: 0,
+            listEditionInputDisplay: false,
             listInputDisplay: false,
             todos: [
                 {
@@ -49,6 +50,19 @@ function reducer(state = initialState, action) {
                         todos: []
                     },
                 ],
+            };
+        case 'EDIT_LIST':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.text = action.payload;
+                            list.listEditionInputDisplay = false;
+                        }
+                        return list;
+                    }
+                )
             };
         case 'DELETE_LIST':
             return {
@@ -111,12 +125,14 @@ function reducer(state = initialState, action) {
                 text: state.lists[action.prevListId].text,
                 listId: action.prevListId,
                 listInputDisplay: false,
+                listEditionInputDisplay: false,
                 todos: state.lists[action.prevListId].todos.filter(todo => todo.id !== action.todoId)
             };
             newStateDrag.lists[action.newListId] = {
                 text: state.lists[action.newListId].text,
                 listId: action.newListId,
                 listInputDisplay: false,
+                listEditionInputDisplay: false,
                 todos: [
                     ...state.lists[action.newListId].todos,
                     {
@@ -217,6 +233,18 @@ function reducer(state = initialState, action) {
                                     return todo;
                                 }
                             )
+                        }
+                        return list;
+                    }
+                )
+            };
+        case 'TOGGLE_DISPLAY_LIST_EDIT_INPUT':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.listEditionInputDisplay = !list.listEditionInputDisplay;
                         }
                         return list;
                     }
