@@ -1,5 +1,5 @@
 .header {
-  background: #E64A19;
+  background: #FF5722;
   color: #FFFFFF;
   padding: 1em;
   display: flex;
@@ -21,7 +21,7 @@
   padding: 0.5em;
   height: 37px;
   min-width: 75px;
-  background-color: #FF5722;
+  background-color: #E64A19;
   color: #FFFFFF;
   border-width: 1px;
   border-color: #FFFFFF;
@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 .header .listActions button:hover {
-  background-color: #E64A19;
+  background-color: #FF5722;
 }
 .header .listActions .inputContainer {
   width: 100%;
