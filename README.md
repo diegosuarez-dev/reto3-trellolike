@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Task me!
 
-## Available Scripts
+Tercer reto propuesto por el bootcamp de frontend online de GeeksHubsAcademy. Consiste en la elaboración de una webapp con react similar a [Trello](https://trello.com/).
 
-In the project directory, you can run:
+## Fase actual del desarrollo: Desarrollo finalizado 🚀
+
+Se trata de una aplicación que permite organizar tareas de manera sencilla e intuitiva a partir de tareas y listados de tareas. Se pueden crear tantos listados de tarea como se desee, al igual que tareas dentro de cada listado. La aplicación permite también la modificación, eliminación y organización de tareas arrastrándolas a otro listado o bien reorganizándolas dentro del mismo listado.
+
+El sistema que permite arrastrar tareas está realizado en base a eventos "drag and drop", por lo que esta funcionalidad sólo está soportada en desktop.
+
+## Construido con 🛠️
+
+React, Redux y Sass.
+
+## Scripts Disponibles
+
+En el directorio del proyecto puedes ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Ejecuta la apilcación en el modo de desarrollo.<br />
+Abre [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+La página se recargará si haces cambios y los guardas.<br />
+También puedes ver errores en la consola.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lanza el sistema de tests en el modo de visionado interactivo.<br />
+Echa un vistazo a la sección sobre [ejecutar tests](https://facebook.github.io/create-react-app/docs/running-tests) para más información.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la versión de producción de la app en el directorio `build`.<br />
+Esto empaqueta correctamente React en modo producción y optimiza la app para el mejor rendimiento.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+El proyecto se minimiza y los nombres de ficheros incluyen los hashes.<br />
+Tu app está lista para ser desplegada!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Echa un vistazo a la sección sobre [despliegue](https://facebook.github.io/create-react-app/docs/deployment) para más información.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Nota: esta operación es de un solo sentido. Una vez lanzas `eject`, ¡no puedes volver atrás!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si no estás satisfecho con la herramienta de empaquetado y las opciones de configuración, puedes utilizar `eject` en cualquier momento. Este comando eliminará la dependencia de tu proyecto.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+En lugar de eso, copiará todos los ficheros de configuración y dependencias transitivas (webpack, Babel, ESLint, etc) en tu proyecto, de modo que tendrás control total sobre ellos. Todos los comandos salvo `eject` seguirán funcionando, pero apuntarán a los scripts copiados, por lo que podrás modificarlos. A partir de este momento estás solo.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+No necesitas usar `eject`. La característica incluida se adapta a despliegues pequeños y medianos y no deberías sentirte obligado a usarla. Sin embargo, entendemos que esta herramienta no sería útil no pudieras configurarla cuando estés listo para ello.
 
-## Learn More
+## Saber más
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Puedes aprender más en la [Documentación Crea una Aplicación en React](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Para aprender React, comprueba la [Documentación de React](https://reactjs.org/).

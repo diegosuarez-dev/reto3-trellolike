@@ -6,7 +6,7 @@ import ListForm from '../ListForm/ListForm';
 import './ListsPanel.css';
 
 const ListsPanel = props => {
-    let draggedItem;
+    let draggedItem; //Donde almaceno la información del todo que voy a arrastrar
     const handleDragStart = (todoText, todoDescription, todoId, todoCompleted, listId) => {
         draggedItem = {
             todoText: todoText,
@@ -37,7 +37,7 @@ const ListsPanel = props => {
                         </div>
                     </div>
                     <div className='listEditInput'>
-                        {list.listEditionInputDisplay ? <ListForm listId={list.listId}/> : null}
+                        {list.listEditionInputDisplay ? <ListForm listId={list.listId} /> : null}
                     </div>
                     <div className='todos'>
                         {
@@ -62,7 +62,7 @@ const ListsPanel = props => {
                                         >
                                             {!todo.completed ? '☐' : '☑'}
                                         </button>
-                                        <button className='edit' onClick={() => props.displayTodoEditInput(todo.id,list.listId)}>
+                                        <button className='edit' onClick={() => props.displayTodoEditInput(todo.id, list.listId)}>
                                             {!todo.editInputDisplay ? '✎' : '↩'}
                                         </button>
                                         <button className='delete' onClick={() => props.deleteTodo(todo.id, list.listId)}>
