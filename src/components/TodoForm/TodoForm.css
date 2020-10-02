@@ -1,0 +1,27 @@
+.todoForm {
+  width: 100%;
+}
+.todoForm input {
+  all: unset;
+  background-color: #FFFFFF;
+  color: #212121;
+  border-radius: 0.5em;
+  width: 100%;
+  font-size: 0.7em;
+}
+.todoForm button {
+  width: 100%;
+  background-color: #E64A19;
+  color: #FFFFFF;
+  border-width: 1px;
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-radius: 0.5em;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+}
+.todoForm button:hover {
+  background-color: #FF5722;
+}
+
+/*# sourceMappingURL=TodoForm.css.map */

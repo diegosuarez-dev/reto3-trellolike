@@ -1,0 +1,26 @@
+@import '../../colors.scss';
+.todoForm {
+    width: 100%;
+    input {
+        all:unset;
+        background-color: $white;
+        color: $primary-text;
+        border-radius: 0.5em;
+        width: 100%;
+        font-size: 0.7em;
+    }
+    button {
+        width: 100%;
+        background-color: $dark-primary;
+        color: $white;
+        border-width: 1px;
+        border-color: $white;
+        border-style: solid;
+        border-radius: 0.5em;
+        cursor: pointer;
+        margin-bottom: 0.5em;
+    }
+    button:hover {
+        background-color: $primary;
+    }
+}

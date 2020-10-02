@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addTodoAction } from '../../services/redux/actions';
-import './NewTodoForm.css';
+import { addTodoAction, editTodoAction } from '../../services/redux/actions';
+import './TodoForm.css';
 
-const NewTodoForm = (props) => {
+const TodoForm = (props) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
@@ -16,26 +16,31 @@ const NewTodoForm = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        props.addTodo(title,description,props.listId);
-        console.log({ title: title, description: description, listId: props.listId });
+        if (props.role === 'new') {
+            props.addTodo(title, description, props.listId);
+            console.log({ title: title, description: description, listId: props.listId });
+        } else {
+            props.editTodo(title,description, props.todoId, props.listId);
+        }
     }
 
     return (
-        <form className="newTodoForm" onSubmit={handleSubmit}>
-            <input type="text" name="title" value={title} placeholder="Task name" onChange={handleTitleChange} required autoFocus/>
+        <form className="todoForm" onSubmit={handleSubmit}>
+            <input type="text" name="title" value={title} placeholder="Task name" onChange={handleTitleChange} required autoFocus />
             <input type="text" name="description" value={description} placeholder="Task description (optional)" onChange={handleDescriptionChange} />
-            <button type="submit">Create it</button>
+            <button type="submit">{props.role === 'new' ? 'Create it' : 'Update it'}</button>
         </form>
     );
 }
 
 const mapDispatchToProps = (dispatch) => ({
     addTodo: addTodoAction(dispatch),
+    editTodo: editTodoAction(dispatch)
 });
 
 const connectedForm = connect(
     null,
     mapDispatchToProps,
-)(NewTodoForm);
+)(TodoForm);
 
 export default connectedForm;

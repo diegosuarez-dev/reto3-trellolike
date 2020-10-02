@@ -4,6 +4,7 @@ const initialState = {
         {
             text: 'lista demo 1',
             listId: 0,
+            listEditionInputDisplay: false,
             listInputDisplay: false,
             todos: [
                 {
@@ -11,18 +12,21 @@ const initialState = {
                     description: 'descripción tarea demo 1',
                     id: 1,
                     completed: true,
+                    editInputDisplay: false
                 },
                 {
                     text: 'tarea demo 2',
                     description: 'descripción tarea demo 2',
                     id: 2,
                     completed: false,
+                    editInputDisplay: false
                 },
                 {
                     text: 'tarea demo 3',
                     description: 'descripción tarea demo 3',
                     id: 3,
                     completed: true,
+                    editInputDisplay: false
                 },
             ],
         }
@@ -47,6 +51,19 @@ function reducer(state = initialState, action) {
                     },
                 ],
             };
+        case 'EDIT_LIST':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.text = action.payload;
+                            list.listEditionInputDisplay = false;
+                        }
+                        return list;
+                    }
+                )
+            };
         case 'DELETE_LIST':
             return {
                 ...state,
@@ -55,27 +72,48 @@ function reducer(state = initialState, action) {
                 ),
             };
         case 'ADD_TODO':
-            let newStateAdd = {
+            return {
                 ...state,
-                lists: [
-                    ...state.lists
-                ]
-            };
-            newStateAdd.lists[action.listId] = {
-                text: state.lists[action.listId].text,
-                listId: action.listId,
-                listInputDisplay: false,
-                todos: [
-                    ...state.lists[action.listId].todos,
-                    {
-                        text: action.title,
-                        description: action.description,
-                        id: action.todoId,
-                        completed: action.completed || false
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.todos = [
+                                ...state.lists[action.listId].todos,
+                                {
+                                    text: action.title,
+                                    description: action.description,
+                                    id: action.todoId,
+                                    completed: action.completed || false,
+                                    editInputDisplay: false
+                                }
+                            ];
+                            list.listInputDisplay = false;
+                        }
+                        return list;
                     }
-                ]
+                )
             };
-            return newStateAdd;
+        case 'EDIT_TODO':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.todos.map(
+                                (todo) => {
+                                    if (todo.id === action.todoId) {
+                                        todo.text = action.title;
+                                        todo.description = action.description;
+                                        todo.editInputDisplay = false;
+                                    }
+                                    return todo;
+                                }
+                            )
+                        }
+                        return list;
+                    }
+                )
+            };
         case 'DRAG_TODO_TO_OTHER_LIST':
             let newStateDrag = {
                 ...state,
@@ -87,19 +125,22 @@ function reducer(state = initialState, action) {
                 text: state.lists[action.prevListId].text,
                 listId: action.prevListId,
                 listInputDisplay: false,
+                listEditionInputDisplay: false,
                 todos: state.lists[action.prevListId].todos.filter(todo => todo.id !== action.todoId)
             };
             newStateDrag.lists[action.newListId] = {
                 text: state.lists[action.newListId].text,
                 listId: action.newListId,
                 listInputDisplay: false,
+                listEditionInputDisplay: false,
                 todos: [
                     ...state.lists[action.newListId].todos,
                     {
                         text: action.todoText,
                         description: action.todoDescription,
                         id: action.todoId,
-                        completed: action.todoCompleted || false
+                        completed: action.todoCompleted || false,
+                        editInputDisplay: false
                     }
                 ]
             };
@@ -115,54 +156,52 @@ function reducer(state = initialState, action) {
                 text: action.startTodoText,
                 description: action.startTodoDescription,
                 id: action.startTodoId,
-                completed: action.startTodoCompleted
+                completed: action.startTodoCompleted,
+                editInputDisplay: false
             };
             let indexOfFirstTodoSwitch = state.lists[action.prevListId].todos.findIndex(element => element.text === firstTodoSwitch.text);
             let secondTodoSwitch = {
                 text: action.endTodoText,
                 description: action.endTodoDescription,
                 id: action.endTodoId,
-                completed: action.endTodoCompleted
+                completed: action.endTodoCompleted,
+                editInputDisplay: false
             };
             let indexOfSecondTodoSwitch = state.lists[action.prevListId].todos.findIndex(element => element.text === secondTodoSwitch.text);
             newStateSwitch.lists[action.prevListId].todos[indexOfFirstTodoSwitch] = secondTodoSwitch;
             newStateSwitch.lists[action.prevListId].todos[indexOfSecondTodoSwitch] = firstTodoSwitch;
             return newStateSwitch;
         case 'DELETE_TODO':
-            let newStateDel = {
+            return {
                 ...state,
-                lists: [
-                    ...state.lists
-                ]
-            };
-            newStateDel.lists[action.listId] = {
-                text: state.lists[action.listId].text,
-                listId: action.listId,
-                listInputDisplay: false,
-                todos: state.lists[action.listId].todos.filter(todo => todo.id !== action.todoId)
-            };
-            return newStateDel;
-        case 'TOGGLE_COMPLETED_TODO':
-            let newStateTog = {
-                ...state,
-                lists: [
-                    ...state.lists
-                ]
-            };
-            newStateTog.lists[action.listId] = {
-                text: state.lists[action.listId].text,
-                listId: action.listId,
-                listInputDisplay: false,
-                todos: state.lists[action.listId].todos.map(
-                    (todo) => {
-                        if (todo.id === action.todoId) {
-                            todo.completed = !todo.completed;
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.todos =  list.todos.filter(todo => todo.id !== action.todoId);
                         }
-                        return todo;
+                        return list;
                     }
                 )
             };
-            return newStateTog;
+        case 'TOGGLE_COMPLETED_TODO':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.todos.map(
+                                (todo) => {
+                                    if (todo.id === action.todoId) {
+                                        todo.completed = !todo.completed;
+                                    }
+                                    return todo;
+                                }
+                            )
+                        }
+                        return list;
+                    }
+                )
+            };
         case 'TOGGLE_DISPLAY_HEADER_INPUT':
             return {
                 ...state,
@@ -175,6 +214,37 @@ function reducer(state = initialState, action) {
                     (list) => {
                         if (list.listId === action.listId) {
                             list.listInputDisplay = !list.listInputDisplay;
+                        }
+                        return list;
+                    }
+                )
+            };
+        case 'TOGGLE_DISPLAY_TODO_EDIT_INPUT':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.todos.map(
+                                (todo) => {
+                                    if (todo.id === action.todoId) {
+                                        todo.editInputDisplay = !todo.editInputDisplay;
+                                    }
+                                    return todo;
+                                }
+                            )
+                        }
+                        return list;
+                    }
+                )
+            };
+        case 'TOGGLE_DISPLAY_LIST_EDIT_INPUT':
+            return {
+                ...state,
+                lists: state.lists.map(
+                    (list) => {
+                        if (list.listId === action.listId) {
+                            list.listEditionInputDisplay = !list.listEditionInputDisplay;
                         }
                         return list;
                     }
