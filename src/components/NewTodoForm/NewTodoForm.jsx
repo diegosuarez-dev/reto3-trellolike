@@ -25,7 +25,7 @@ const NewTodoForm = (props) => {
     }
 
     return (
-        <form className="newTodoForm" onSubmit={handleSubmit}>
+        <form className={"newTodoForm"} onSubmit={handleSubmit}>
             <input type="text" name="title" value={title} placeholder="Task name" onChange={handleTitleChange} required autoFocus />
             <input type="text" name="description" value={description} placeholder="Task description (optional)" onChange={handleDescriptionChange} />
             <button type="submit">{props.role === 'new' ? 'Create it' : 'Update it'}</button>
