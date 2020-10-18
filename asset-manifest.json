@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/reto3-trellolike/static/css/main.396c2a94.chunk.css",
+    "main.js": "/reto3-trellolike/static/js/main.865408c4.chunk.js",
+    "main.js.map": "/reto3-trellolike/static/js/main.865408c4.chunk.js.map",
+    "runtime-main.js": "/reto3-trellolike/static/js/runtime-main.031356e2.js",
+    "runtime-main.js.map": "/reto3-trellolike/static/js/runtime-main.031356e2.js.map",
+    "static/js/2.0f542c26.chunk.js": "/reto3-trellolike/static/js/2.0f542c26.chunk.js",
+    "static/js/2.0f542c26.chunk.js.map": "/reto3-trellolike/static/js/2.0f542c26.chunk.js.map",
+    "index.html": "/reto3-trellolike/index.html",
+    "precache-manifest.fb54fe722494502adf547bd9b115329a.js": "/reto3-trellolike/precache-manifest.fb54fe722494502adf547bd9b115329a.js",
+    "service-worker.js": "/reto3-trellolike/service-worker.js",
+    "static/css/main.396c2a94.chunk.css.map": "/reto3-trellolike/static/css/main.396c2a94.chunk.css.map",
+    "static/js/2.0f542c26.chunk.js.LICENSE.txt": "/reto3-trellolike/static/js/2.0f542c26.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.031356e2.js",
+    "static/js/2.0f542c26.chunk.js",
+    "static/css/main.396c2a94.chunk.css",
+    "static/js/main.865408c4.chunk.js"
+  ]
+}
